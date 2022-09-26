@@ -1,0 +1,20 @@
+.imgCard {
+    width: 40px;
+    height: 40px;
+}
+
+.carritoStyle {
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+    margin-right: 8px;
+    margin-left: 8px;
+    border-color: black;
+    border-style: solid;
+    background-color: #F0F0F0;
+}
+
+.marginCarrito {
+    margin-right: 8px;
+    margin-left: 8px;
+}
