@@ -1,9 +1,30 @@
-import Counter from '../Counter/Counter'
+import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
+import { Link } from 'react-router-dom'
+import { useCart } from '../../CartContext/CartContext'
+import { useContext, useState } from 'react'
+import '../asyncMock'
 
 //Componente de visualización de ItemDetailContainer 
 
-const ItemDetail = ({ img, name, category, price, stock, description }) => {
+const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
+    const [goToCart, setGoToCart] = useState (false)
+
+    const { addItem } = useCart();
+
+    const onAdd = (count) => {
+        const productToAdd = {
+            id,
+            name,
+            category,
+            price,
+            description
+        }
+        setGoToCart(true);
+        addItem(productToAdd, count);
+
+    }
+
     return (
         <div className="center row row-cols-1 row-cols-md-4 g-1">
             <div className="col">
@@ -15,7 +36,12 @@ const ItemDetail = ({ img, name, category, price, stock, description }) => {
                         <p className="card-text">Descripción: {description}</p>
                         <p className="card-text">Precio: ${price}</p>
                         <p className="card-text">Stock: {stock}</p>
-                        <Counter />
+
+                        {goToCart
+                            ? <Link to='/cart'>Terminar Compra</Link>
+                            : <ItemCount onAdd={onAdd} stock={stock} />
+                        }
+
                     </div>
                 </div>
             </div>

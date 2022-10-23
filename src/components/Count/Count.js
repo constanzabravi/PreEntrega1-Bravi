@@ -1,23 +1,24 @@
-import { useState } from "react"
-
+import React from "react"
+import { useState } from 'react'
 
 let stock = 10
 
-const Counter = ({onAdd}) => {
-  const [count, setCount] = useState(0)
-  
-    
+const Counter = () => {
+
+    const [count, setCount] = useState(0)
+
     const increment = () => {
         if (count < stock) {
-            setCount (count +1)
-            }
+            setCount(count + 1)
         }
+    }
 
     const decrement = () => {
-        if (count >0){
-            setCount (count -1)
-            }
+        if (count > 0) {
+            setCount(count - 1)
         }
+    }
+
 
     return (
         <div>

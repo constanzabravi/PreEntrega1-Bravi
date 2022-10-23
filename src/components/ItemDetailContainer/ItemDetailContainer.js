@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react" //llamado a la API con useEffect
+import { useState, useEffect } from "react" //llamado a la API con useEffect
 import './ItemDetailContainer.css'
 import { getProductById } from "../asyncMock"
 import ItemDetail from '../ItemDetail/ItemDetail'
@@ -14,7 +14,7 @@ const ItemDetailContainer = () => {
 
     //ejecuto la funcion getProductbyId -simulacion de Api- cuando se monte el componente o cambie el productId
     //cuando lo ejecute y se resuelva la promesa, devuelve el objeto con un producto
-    //ese producto lo guardo como estado en el componente, creo el estado.
+    //ese prosceducto lo guardo como estado en el componente, creo el estado.
     //Finalmente, este componente se encarga de la lógica, y se visualiza con ItemDetail
     useEffect(() => {
         setCargando(true)
