@@ -1,42 +1,54 @@
-import { useState } from "react"
+import { useState, useContext } from 'react';
 
 
-const ItemCount = ({ stock = 10, initial = 0, onAdd }) => {
+import { Link } from "react-router-dom";
 
-    const [count, setCount] = useState(initial)
 
-    const increment = () => {
-        if (count < stock) {
-            setCount(count + 1)
-        }
+
+const ItemCount = ({ stock = 0, initial = 1, onAdd }) => {
+  const [quantity, setQuantity] = useState(initial)
+
+ 
+
+  const increment = () => {
+    if (quantity < stock) {
+      setQuantity(quantity + 1);
+    }
+  }
+
+  const decrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1)
     }
 
-    const decrement = () => {
-        if (count > 0) {
-            setCount(count - 1)
-        }
-    }
 
-    return (
-        <div>
+  }
 
-            <h5>Cantidad</h5>
-            <h6> {count} </h6>
-            <button onClick={decrement}>-</button>
-            <button onClick={increment}>+</button>
 
-            {count > 0 ?
-                <button id="cartButton"  onClick={() => onAdd(count)}>
-                    Agregar al Carrito
-                </button>
-                :
-                <button id="cartButton" className="disabled" onClick={() => onAdd(count)}>
-                    Agregar al Carrito
-                </button>
-            }
+  const [buttonText, setButtonText] = useState("Agregar al carro"); //same as creating your state variable where "Next" is the default value for buttonText and setButtonText is the setter function for your state variable instead of setState
 
-        </div>
-    )
+ 
+  
+
+
+  return (
+    <div id="contador">
+      <button className="btn btn-dark" id='button' onClick={increment}>+</button>
+      <p id='numero'>{quantity}</p>
+      <button className="btn btn-dark" id='button' onClick={decrement} >-</button>
+
+
+      <button className="btn btn-dark" id='button'  onClick={() =>{ onAdd(quantity); setButtonText("Elemento agregado") }}>{buttonText}</button>
+
+      <Link to={'/cart'} className="btn btn-dark" id='button'  >Ir al carrito</Link>
+
+ 
+ 
+  
+
+
+    </div>
+  )
 }
 
-export default ItemCount
+export default ItemCount;
