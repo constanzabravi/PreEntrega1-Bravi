@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {getFirestore} from firebase/firestore
+import {getFirestore} from "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: "AIzaSyD3FlB2fgnYOMUe4WYGU-HoWpBmhRXtN0w",
@@ -11,7 +11,8 @@ const firebaseConfig = {
   appId: "1:948588237196:web:b9fe6820eeb99969ccc6a9"
 };
 
-// Initialize Firebase
+// Conecto mi proyecto con firebase
 const app = initializeApp(firebaseConfig);
 
-export const db = getFirestoe(app)
+//Conecto con la base de datos de Firebase y la exporto para utilizarla donde quiera
+export const db = getFirestore(app)

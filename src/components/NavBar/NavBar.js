@@ -1,9 +1,28 @@
 import moto from './assets/moto.png'
 import CartWidget from '../CartWidget/CartWidget'
 import './NavBar.css'
-import { Link } from 'react-router-dom'
+import { NavLink, Link} from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { getDocs, collection, orderBy, query } from 'firebase/firestore'
+import { db } from '../../ServicesFirebase'
 
 const NavBar = () => {
+    const [categories, setCategories] = useState([])
+//Consultar categorias. Traigo documentos de la coleccion categories
+//Para eso creo la referencia con esta función collection, con la base de datos y la categoria determinada
+
+useEffect(() => {
+    const collectionRef = collection(db, 'categories') 
+    getDocs(collectionRef).then(response => {
+        const categoriesAdapted = response.docs.map(doc =>{
+            const data = doc.data()
+            const id = doc.id
+            return {id, ...data}
+        })
+        setCategories(categoriesAdapted)
+    })
+ }, [])
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link to='/'>
@@ -12,22 +31,19 @@ const NavBar = () => {
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div className="navbar-nav">
-                    <Link to='/category/Amortiguador'>
-                        <button className="margin nav-item nav-link">Amortiguadores</button>
-                    </Link>
-                    <Link to='/category/Cubiertas'>
-                    <button className="margin nav-item nav-link">Cubiertas</button>
-                    </Link>
-                    <Link to='/category/Filtro'>
-                    <button className="margin nav-item nav-link">Filtros</button>
-                    </Link>
-                    <Link to='/category/Baul'>
-                    <button className="margin nav-item nav-link">Baul</button>
-                    </Link>
-                </div>
-            </div>
+<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+<div className="navbar-nav">
+{
+              categories.map(cat => {
+                return(
+                <Link key={cat.id} to={`/category/${cat.slug}`}> {cat.label} </Link>
+              )})
+            } 
+</div>
+</div>
+
+
+            
             <CartWidget />
         </nav >
     )

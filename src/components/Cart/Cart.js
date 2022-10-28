@@ -13,11 +13,10 @@ const Cart = () => {
                             {prod.name}
                         </h1>
                         <ul>
-                            <li className="element1">  ${prod.price}</li>
-                            <li className="element1">  Cantidad = {prod.quantity}</li>
-                            <li className="element1"> Stock = {prod.stock}</li>
-                            <button className="generator1" onClick={() => removeItem(prod.id)}>remover</button>
-
+                            <li>  ${prod.price}</li>
+                            <li>  Cantidad = {prod.quantity}</li>
+                            <li> Stock = {prod.stock}</li>
+                            <button  onClick={() => removeItem(prod.id)}>Remover</button>
                         </ul>
 
                     </div>

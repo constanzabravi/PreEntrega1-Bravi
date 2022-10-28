@@ -2,41 +2,50 @@ import { useState, useEffect } from "react" //llamado a la API con useEffect
 import './ItemDetailContainer.css'
 import { getProductById } from "../asyncMock"
 import ItemDetail from '../ItemDetail/ItemDetail'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 //Este hook permite traer los parámetros dinámicos de App.js
 import { DotSpinner } from '@uiball/loaders'
-
+import { getDoc, doc } from "firebase/firestore"
+import { db } from "../../ServicesFirebase"
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({}) //esto es un objeto
     const [cargando, setCargando] = useState(true)
     const { productId } = useParams()
 
-    //ejecuto la funcion getProductbyId -simulacion de Api- cuando se monte el componente o cambie el productId
-    //cuando lo ejecute y se resuelva la promesa, devuelve el objeto con un producto
-    //ese prosceducto lo guardo como estado en el componente, creo el estado.
-    //Finalmente, este componente se encarga de la lógica, y se visualiza con ItemDetail
+
+    //Hook para navegar hacia la página anterior 
+    const navigate = useNavigate()
+
     useEffect(() => {
-        setCargando(true)
-        getProductById(productId).then(response => {
-            setProduct(response)
-        }).finally(() => {
+        const docRef = doc(db, 'productos', productId)
+        
+        getDoc(docRef).then(response => {
+            console.log(response)
+            const data = response.data()
+            //Adaptacion de producto
+            const productAdapted = { id: response.id, ...data}
+            setProduct(productAdapted)
+        }). finally (() => {
             setCargando(false)
         })
+
     }, [productId])
 
     if (cargando) {
-        return ( 
-        <div className= "center">
-        <h3 className= "center">Cargando el detalle del producto</h3>
-        <DotSpinner  size={40} speed={0.9} color="black" className= "center"/>
-        </div>
+        return (
+            <div className="center">
+                <h3 className="center">Cargando el detalle del producto</h3>
+                <DotSpinner size={40} speed={0.9} color="black" className="center" />
+            </div>
         )
     }
 
     return (
         <div>
-            <h1 className= "center">Detalle de producto</h1>
+            {/* Botón para volver hacia la página anterior */}
+            <button className="title" onClick={() => navigate(-1)} >Volver</button>
+            <h1 className="center">Detalle de producto</h1>
             <ItemDetail key={product.id} {...product} />
         </div>
     )

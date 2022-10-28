@@ -3,12 +3,14 @@ import './ItemDetail.css'
 import { CartContext } from '../../CartContext/CartContext'
 import { useContext } from 'react'
 import '../asyncMock'
+import { NotificationContext } from '../../Notification/NotificationService'
 
 //Componente de visualización de ItemDetailContainer 
 
 const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
-   
-    const { addItem } = useContext(CartContext)
+
+    const { addItem } = useContext(CartContext) //nombre de referencia con el que lo creé
+    const { setNotification } = useContext(NotificationContext)
 
     const handleOnAdd = (quantity) => {
         const productToAdd = {
@@ -21,9 +23,10 @@ const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
             stock,
         }
         addItem(productToAdd)
-        console.log(productToAdd)
-       
-      }
+        setNotification('success', `Se agrego correctamente ${quantity} ${name}`)
+        // console.log(productToAdd)
+
+    }
 
     return (
         <div className="center row row-cols-1 row-cols-md-4 g-1">
@@ -37,7 +40,7 @@ const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
                         <p className="card-text">Precio: ${price}</p>
                         <p className="card-text">Stock: {stock}</p>
 
-                        < ItemCount onAdd={handleOnAdd}  stock={stock} />
+                        < ItemCount onAdd={handleOnAdd} stock={stock} />
 
                     </div>
                 </div>
