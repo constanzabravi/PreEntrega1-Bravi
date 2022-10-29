@@ -5,13 +5,15 @@ import { useContext } from 'react'
 import '../asyncMock'
 import { NotificationContext } from '../../Notification/NotificationService'
 
-//Componente de visualización de ItemDetailContainer 
+//Componente de visualización de ItemDetailContainer con contador
 
 const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
 
-    const { addItem } = useContext(CartContext) //nombre de referencia con el que lo creé
+    const { addItem, getProductQuantity, isInCart } = useContext(CartContext) //nombre de referencia con el que lo creé
     const { setNotification } = useContext(NotificationContext)
 
+    // Funciones del contador
+    //Paso los datos
     const handleOnAdd = (quantity) => {
         const productToAdd = {
             id,
@@ -22,12 +24,12 @@ const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
             quantity,
             stock,
         }
-        addItem(productToAdd)
+        //Agrego el producto
+        addItem(productToAdd, quantity)
         setNotification('success', `Se agrego correctamente ${quantity} ${name}`)
-        // console.log(productToAdd)
-
     }
 
+const quantityAdded = getProductQuantity(id)
     return (
         <div className="center row row-cols-1 row-cols-md-4 g-1">
             <div className="col">
@@ -40,14 +42,12 @@ const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
                         <p className="card-text">Precio: ${price}</p>
                         <p className="card-text">Stock: {stock}</p>
 
-                        < ItemCount onAdd={handleOnAdd} stock={stock} />
+                        <ItemCount onAdd={handleOnAdd} stock={stock} initial={quantityAdded} />
 
                     </div>
                 </div>
             </div>
         </div>
-
-
     )
 }
 

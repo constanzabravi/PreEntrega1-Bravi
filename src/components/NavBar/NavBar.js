@@ -33,8 +33,7 @@ useEffect(() => {
             </button>
 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 <div className="navbar-nav">
-{
-              categories.map(cat => {
+{ categories.map(cat => {
                 return(
                 <Link key={cat.id} to={`/category/${cat.slug}`}> {cat.label} </Link>
               )})

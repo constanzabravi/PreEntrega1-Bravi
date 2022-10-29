@@ -4,9 +4,7 @@ import { useState } from 'react'
 let stock = 10
 
 const Counter = () => {
-
     const [count, setCount] = useState(0)
-
     const increment = () => {
         if (count < stock) {
             setCount(count + 1)
@@ -18,7 +16,6 @@ const Counter = () => {
             setCount(count - 1)
         }
     }
-
 
     return (
         <div>
