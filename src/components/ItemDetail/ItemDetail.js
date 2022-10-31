@@ -9,7 +9,7 @@ import { NotificationContext } from '../../Notification/NotificationService'
 
 const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
 
-    const { addItem, getProductQuantity, isInCart } = useContext(CartContext) //nombre de referencia con el que lo creé
+    const { addItem } = useContext(CartContext) //nombre de referencia con el que lo creé
     const { setNotification } = useContext(NotificationContext)
 
     // Funciones del contador
@@ -25,11 +25,10 @@ const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
             stock,
         }
         //Agrego el producto
-        addItem(productToAdd, quantity)
+        addItem(productToAdd)
         setNotification('success', `Se agrego correctamente ${quantity} ${name}`)
     }
 
-const quantityAdded = getProductQuantity(id)
     return (
         <div className="center row row-cols-1 row-cols-md-4 g-1">
             <div className="col">
@@ -42,7 +41,7 @@ const quantityAdded = getProductQuantity(id)
                         <p className="card-text">Precio: ${price}</p>
                         <p className="card-text">Stock: {stock}</p>
 
-                        <ItemCount onAdd={handleOnAdd} stock={stock} initial={quantityAdded} />
+                        <ItemCount onAdd={handleOnAdd} stock={stock} />
 
                     </div>
                 </div>

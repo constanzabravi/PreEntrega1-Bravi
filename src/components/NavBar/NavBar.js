@@ -1,9 +1,9 @@
 import moto from './assets/moto.png'
 import CartWidget from '../CartWidget/CartWidget'
 import './NavBar.css'
-import { NavLink, Link} from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { getDocs, collection, orderBy, query } from 'firebase/firestore'
+import { getDocs, collection } from 'firebase/firestore'
 import { db } from '../../ServicesFirebase'
 
 const NavBar = () => {

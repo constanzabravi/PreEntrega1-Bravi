@@ -7,6 +7,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import { CartProvider } from "./CartContext/CartContext"
 import Cart from "./components/Cart/Cart"
 import { NotificationProvider } from './Notification/NotificationService';
+import Checkout from './components/Checkout/Checkout';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               < Route path='/item/:productId' element={<ItemDetailContainer />} />
               < Route path='*' element={<h1>404 ERROR NOT FOUND</h1>} />
               < Route path='/cart' element={<Cart />} />
+              < Route path='/checkout' element={<Checkout />} />
             </Routes>
           </BrowserRouter>
         </CartProvider>
