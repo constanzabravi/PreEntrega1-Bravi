@@ -22,15 +22,9 @@ const Cart = () => {
                 </div>
             ))
             }
-<<<<<<< HEAD
-
-            <Link to='/checkout' className="btn btn-dark" id='button'>Checkout</Link>
-            <button> Precio total: $ {getTotal(cart)}</button>
-=======
-            <button> Generar orden</button>
             <h1> Precio total: $ {total}</h1>
->>>>>>> d5646d6aa49f7bf84d3f5ee5a7a03f52a2666661
             <button onClick={() => clearCart(cart)}>Vaciar el carrito</button>
+            <button><Link className='Button' to='/checkout' >Checkout</Link></button>
         </div>
 
     )

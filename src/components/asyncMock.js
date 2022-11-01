@@ -3,10 +3,10 @@ import { addDoc } from "firebase/firestore"
 const products = [
     {
         id: '1',
-        name: 'Cubierta',
+        name: 'Casco',
         price: 20000,
-        category: 'Cubiertas',
-        img: '/Images/cubierta.jpg',
+        category: 'Cascos',
+        img: 'https://motocity.com.ar/media/catalog/product/cache/2fac267d4110f9f65e5d0a9520c3c587/d/_/d_nq_np_957641-mla52106425351_102022-o.jpg',
         stock: 10,
         description: 'Cubierta trasera para moto Rinaldi RMX 35 con cámara de 100/90-19 M 57 x 1 unidad'
     },
