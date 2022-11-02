@@ -2,7 +2,6 @@ import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 import { CartContext } from '../../CartContext/CartContext'
 import { useContext } from 'react'
-import '../asyncMock'
 import { NotificationContext } from '../../Notification/NotificationService'
 
 //Componente de visualización de ItemDetailContainer con contador
