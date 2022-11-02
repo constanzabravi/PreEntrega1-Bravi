@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 
 //Acciones (lógica) del carrito 
 //CONTEXT: inyecta dependecias ('burbuja' de valor, funciones, objetos o referencias) a los componentes que le indico, sin necesidad de acceder por props.
@@ -81,4 +81,8 @@ export const CartProvider = ({ children }) => {
             {children}
         </CartContext.Provider>
     )
+}
+
+export const useCart = () => {
+    return useContext(CartContext)
 }

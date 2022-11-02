@@ -1,14 +1,13 @@
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
-import { CartContext } from '../../CartContext/CartContext'
 import { useContext } from 'react'
 import { NotificationContext } from '../../Notification/NotificationService'
-
+import { useCart } from '../../CartContext/CartContext'
 //Componente de visualización de ItemDetailContainer con contador
 
 const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
 
-    const { addItem } = useContext(CartContext) //nombre de referencia con el que lo creé
+    const { addItem } = useCart()
     const { setNotification } = useContext(NotificationContext)
 
     // Funciones del contador

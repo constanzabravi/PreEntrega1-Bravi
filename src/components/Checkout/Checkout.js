@@ -105,43 +105,20 @@ const Checkout = () => {
 
     //Validación del form
 
-    const submit = (e) => {
-
-        e.prevetDefault()
-
-        if (name.value === null || name.value === '') {
-            alert('complete los campos')
-
-        if (email.value === null || email.value === '') {
-            alert('complete los campos')
-        }
-        if (phone.value === null || phone.value === '') {
-            alert('complete los campos')
-        }
-        if (address.value === null || address.value === '') {
-            alert('complete los campos')
-        }
-
-
-        return false;
-
-    }
-
-    //Parte visual del componente lógico de arriba
     return (
-        <div className="formulario">
-            <h1>Formulario</h1>
-            <h2>Complete el siguiente formulario para realizar su orden de compra</h2>
-            <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Nombre y Apellido" />
-            <input value={address} onChange={(e) => setAddress(e.target.value)} type="text" placeholder="Dirección" />
-            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" />
-            <input value={phone} onChange={(e) => setPhone(e.target.value)} type="number" placeholder="Teléfono" />
-            <button onClick={createOrder}>Generar pedido</button>
-            <button onClick={(e) => this.submit(e)}>Validar datos</button>
+        <div>
+            <h1>Completa los datos para generar la orden.</h1>
+            <div className='myForm1' >
+                <input value={name} onChange={(e) => setName(e.target.value)} type="text" className="form-input" placeholder="Nombre" />
+                <input value={address} onChange={(e) => setAddress(e.target.value)} type="text" className="form-input" placeholder="Dirección" />
+                <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" className="form-input" placeholder="Email" />
+                <input value={phone} onChange={(e) => setPhone(e.target.value)} type="number" className="form-input" placeholder="Teléfono" />
+            </div>
 
         </div>
+
     )
 }
-}
+
 
 export default Checkout
