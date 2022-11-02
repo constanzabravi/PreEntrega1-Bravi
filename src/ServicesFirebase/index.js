@@ -1,14 +1,16 @@
-// Import the functions you need from the SDKs you need
+//ENTORNO DE EJECUCION
+
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"
 
+//El objeto process es un objeto global que está en el entorno de ejecución
 const firebaseConfig = {
-  apiKey: "AIzaSyD3FlB2fgnYOMUe4WYGU-HoWpBmhRXtN0w",
-  authDomain: "constanzabravi.firebaseapp.com",
-  projectId: "constanzabravi",
-  storageBucket: "constanzabravi.appspot.com",
-  messagingSenderId: "948588237196",
-  appId: "1:948588237196:web:b9fe6820eeb99969ccc6a9"
+  apiKey: process.env.REACT_APP_apiKey, 
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
 
 // Conecto mi proyecto con firebase

@@ -110,10 +110,8 @@ const Checkout = () => {
         e.prevetDefault()
 
         if (name.value === null || name.value === '') {
-
             alert('complete los campos')
 
-        }
         if (email.value === null || email.value === '') {
             alert('complete los campos')
         }
@@ -143,6 +141,7 @@ const Checkout = () => {
 
         </div>
     )
+}
 }
 
 export default Checkout
