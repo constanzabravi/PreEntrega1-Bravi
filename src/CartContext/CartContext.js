@@ -39,7 +39,7 @@ export const CartProvider = ({ children }) => {
     //Función para agregar producto en el estado y si se toca nuevamente el botón, avisa que ya se agregó
 
     const addItem = (productToAdd, quantity) => {
-        //Funión para saber si el producto está en el carrito
+        //Función para saber si el producto está en el carrito
         if (!isInCart(productToAdd.id)) {
             setCart([...cart, productToAdd])
         } else {
@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
                 if(prod.id === productToAdd.id) {
                     const productUpdated = {
                         ...prod,
-                        quantity: quantity
+                        quantity: productToAdd.quantity
                     }
 
                     return productUpdated
@@ -61,7 +61,7 @@ export const CartProvider = ({ children }) => {
     }
 
     //Validación para saber si está en el carrito 
-    const isInCart = (id) => { return cart.some(prod => prod.id === id) }
+    const isInCart = (id) => { return cart.find(prod => prod.id === id) ? true : false}
 
     //Funcion para remover/filtrar productos, todos los que tengan distinto ID al que le estoy pasando me los devuelve al array Y SE ELIMINAN sin mutar el estado.  
     const removeItem =(id)=>{
@@ -98,7 +98,7 @@ export const CartProvider = ({ children }) => {
 
     //Cart.Context.Provider es quien lo va a compartir a todos los hijos
     return (
-        <CartContext.Provider value = {{cart, addItem, removeItem, isInCart, clearCart, totalQuantity, total, getProductQuantity}}>
+        <CartContext.Provider value = {{cart, addItem, removeItem, isInCart, clearCart, totalQuantity,  getQuantity,  total, getProductQuantity}}>
         {children}
         </CartContext.Provider>
     )
