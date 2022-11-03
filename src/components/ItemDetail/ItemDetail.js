@@ -2,12 +2,13 @@ import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 import { useContext } from 'react'
 import { NotificationContext } from '../../Notification/NotificationService'
-import { useCart } from '../../CartContext/CartContext'
+import { CartContext } from '../../CartContext/CartContext'
+import { Link } from 'react-router-dom'
 //Componente de visualización de ItemDetailContainer con contador
 
 const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
 
-    const { addItem } = useCart()
+    const { addItem, isInCart, getProductQuantity } = useContext(CartContext)
     const { setNotification } = useContext(NotificationContext)
 
     // Funciones del contador
@@ -27,6 +28,8 @@ const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
         setNotification('success', `Se agrego correctamente ${quantity} ${name}`)
     }
 
+    const quantityAdded = getProductQuantity(id)
+
     return (
         <div className="center row row-cols-1 row-cols-md-4 g-1">
             <div className="col">
@@ -39,7 +42,11 @@ const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
                         <p className="card-text">Precio: ${price}</p>
                         <p className="card-text">Stock: {stock}</p>
 
-                        <ItemCount onAdd={handleOnAdd} stock={stock} />
+                        <footer>
+                        {stock !==0 ? <ItemCount onAdd={handleOnAdd} stock={stock} initial={quantityAdded} category={category}/>
+                        :<h2 className='stock'>SIN STOCK</h2>}
+                        {isInCart(id) && <Link to= '/cart' className= 'ButtonF'>FINALIZAR COMPRA</Link>}
+                        </footer>
 
                     </div>
                 </div>
