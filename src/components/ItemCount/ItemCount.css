@@ -1,0 +1,22 @@
+#contador{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Space{
+    margin: auto;
+    font-size: 15px;
+}
+
+
+.Space:hover{
+    background-color: white;
+    color: black;
+}
+
+#numero {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+}

@@ -6,13 +6,11 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { CartProvider } from "./CartContext/CartContext"
 import Cart from "./components/Cart/Cart"
-import { NotificationProvider } from './Notification/NotificationService';
 import Checkout from './components/Checkout/Checkout';
 
 function App() {
   return (
     <div>
-      <NotificationProvider>
         <CartProvider>
           <BrowserRouter>
             {/* Se ordenan segun la ruta de navegación.
@@ -30,7 +28,6 @@ function App() {
             </Routes>
           </BrowserRouter>
         </CartProvider>
-      </NotificationProvider>
     </div>
   );
 }

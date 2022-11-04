@@ -1,22 +1,40 @@
 import { useNavigate } from 'react-router-dom'
+import './Item.css'
 
 const Item = ({ img, name, description, id, price }) => {
     const navigate = useNavigate()
 
     return (
-        <div className="col">
-            <div className="card h-100">
-                <img className="img" src={img} alt={name} />
-                <div className="card-body">
-                    <h5 className="card-title">{name}</h5>
-                    <h6>Descripción: {description}</h6>
-                    <p className="card-text">${price}</p>
-                    <button onClick={() => navigate(`/item/${id}`)}>VER DETALLE</button>
+        <div class="container page-wrapper">
+            <div class="page-inner">
+                <div class="row">
+                    <div class="el-wrapper">
+                        <div class="box-up">
+                            <img className="img" src={img} alt={name} />
+                            <div class="img-info">
+                                <div class="info-inner">
+                                    <span class="p-name">{name}</span>
+                                    <span class="p-company">{description}</span>
+                                </div>
+                                <div class="a-size">Precio: ${price}</div>
+                            </div>
+                        </div>
+
+                        <div class="box-down">
+                            <div class="h-bg">
+                                <div class="h-bg-inner"></div>
+                            </div>
+
+                            <a class="cart" href="#">
+                                <span class="add-to-cart">
+                                    <span class="txt" onClick={() => navigate(`/item/${id}`)}>VER DETALLE</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-
     )
 
 }
