@@ -1,10 +1,28 @@
-.title {
-    text-align: center;
+.title1 {
+  text-align: right;
+  font-size: 2rem;
+  padding-right: 100px;
+  padding-top: 100px;
+  text-shadow: 5px 0px 3px white;
+}
+
+.title2 {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-weight: 700;
 }
 
 .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: 700;
+}
+
+.space {
+  height: 500px;
+  width: auto;
+  background-image: url("./Images/fondo.png")
+}

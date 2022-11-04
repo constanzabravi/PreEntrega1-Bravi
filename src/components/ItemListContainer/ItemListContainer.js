@@ -17,14 +17,14 @@ const ItemListContainer = () => {
     if (cargando) {
         return (
             <div className='center'>
-                <h1>Cargando...</h1>
+                <h1>Cargando tu mejor experiencia...</h1>
                 <DotSpinner size={40} speed={0.9} color="black" className="center" />
             </div>
         )
     }
 
     //Si tengo un error:
-    if(error){
+    if (error) {
         return <h1>Hubo un error</h1>
     }
 
@@ -33,8 +33,15 @@ const ItemListContainer = () => {
     // ya transformado el array de componentes, tengo que insertarlos en el DIV como HIJOS 
     return (
         <div>
-            <h1 className="title">DYE Motopartes</h1>
-            <h2 className="title">Listado de productos</h2>
+            <div className="space">
+                <h1 className="title1">No importa donde vayas,<br /> te acompañamos <br />en tu camino.</h1>
+            </div>
+            <h2 className="title2">Nosotros</h2>
+            <article className='center'>
+                <h3>Somos una distribuidora mayorista de motopartes</h3>
+                <p>Si tenés un comercio y te interesa vender nuestros productos, contactanos para recibir asesoramiento.</p>
+            </article>
+            <h2 className="title2">Listado de nuestros productos</h2>
             <ItemList products={products} />
         </div>
     )

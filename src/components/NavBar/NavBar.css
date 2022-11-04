@@ -1,5 +1,39 @@
-.margin {
- margin-right: 10px;
- margin-left: 10px;
+.nav {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    background: black;
+
 }
 
+.categorias {
+    display: flex;
+    justify-content: left;
+    text-decoration: none;
+    color: white;
+}
+
+.Option {
+    display: block;
+    margin: 0 50px;
+    padding: 5px;
+    border: 1px solid white;
+    outline: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: transparent;
+    text-decoration: none;
+    color: white;
+}
+    .Option:hover {
+        color: black;
+        background-color: white;
+    }
+
+img {
+height: 70px;
+    }

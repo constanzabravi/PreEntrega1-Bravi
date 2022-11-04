@@ -18,10 +18,9 @@ const CartWidget = () => {
         <div className='carritoStyle'>
             <Link to='/cart'>  <img id="carrito" className='imgCard marginCarrito' src={cart} alt="cart" /></Link>
             <div className='marginCarrito'>
-                {totalQuantity}
-            </div>
-            <div>
-                ${total}
+                PRODUCTOS AGREGADOS: {totalQuantity}
+            <br/>
+                TOTAL: ${total}
             </div>
         </div>
     )

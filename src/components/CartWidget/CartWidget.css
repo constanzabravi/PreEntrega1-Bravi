@@ -6,15 +6,20 @@
 .carritoStyle {
     display: flex;
     justify-content: space-between;
-    font-size: 25px;
+    font-size: 12px;
     margin-right: 8px;
     margin-left: 8px;
     border-color: black;
+    font-weight: 700;
     border-style: solid;
     background-color: #F0F0F0;
+    border: 1px solid white;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .marginCarrito {
     margin-right: 8px;
     margin-left: 8px;
+    margin-top: 5px;
 }
+
