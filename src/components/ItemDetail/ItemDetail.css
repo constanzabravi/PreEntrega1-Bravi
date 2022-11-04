@@ -20,18 +20,20 @@
 	overflow: hidden;
 	display: flex;
 	align-items: center;
+	font-family: 'Source Sans Pro', sans-serif;
+	border-radius: 10px;
 }
 
-.img {
+.img2 {
 	position: absolute;
-	right: -15px;
+	right: 5px;
 	height: 200px;
     width: 200px;
 	animation-delay: 0.5s;
 }
 
 .content {
-	animation-delay: 0.3s;
+	--animate-duration: 0.3s;
 	position: absolute;
 	left: 20px;
 	z-index: 3
@@ -40,6 +42,8 @@
 
 h1 {
 	color: #111;
+	font-size: 1.5rem;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 p {
@@ -48,6 +52,7 @@ p {
 	line-height: 1.4;
 	color: #aaa;
 	margin: 20px 0;
+	font-family: 'Source Sans Pro', sans-serif;
 	
 }
 
@@ -56,16 +61,15 @@ p {
 	color: #fff;
 	background: cornflowerblue;
 	padding: 5px 10px;
-	border-radius: 50px;
-	font-size: .7em;
+	margin: 30px 30px;
+	font-size: 0.8rem;
 }
 .button {
 	width: fit-content;
 	height: fit-content;
 	margin-top: 10px;
-	
-	
-	
+	font-family: 'Source Sans Pro', sans-serif;
+
 }
 
 .button a {
@@ -78,7 +82,6 @@ p {
 	padding: 10px 15px;
 	border: 1px solid #aaa;
 	font-weight: bold;
-	
 	
 }
 

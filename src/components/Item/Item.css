@@ -3,6 +3,11 @@ html {
   height: 100%;
 }
 
+.img1 {
+  width: 200px;
+  height: 200px;
+}
+
 .d-flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -76,7 +81,7 @@ body {
   left: 50%;
 }
 
-.el-wrapper:hover .img {
+.el-wrapper:hover .img1 {
   -o-filter: blur(7px);
   -ms-filter: blur(7px);
   filter: blur(7px);
@@ -111,9 +116,9 @@ body {
   text-align: center;
 }
 
-.el-wrapper .img {
-  margin-bottom: 15px;
-  margin-left: 50px;
+.el-wrapper .img1 {
+  padding-bottom: 10px;
+  margin-left: 30px;
   -webkit-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
   -moz-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
   -o-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
@@ -274,4 +279,5 @@ body {
   letter-spacing: 0.045em;
   text-transform: uppercase;
   white-space: nowrap;
+  cursor: pointer;
 }

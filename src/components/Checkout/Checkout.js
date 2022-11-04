@@ -41,7 +41,7 @@ const Checkout = () => {
             //Productos con los ids en el carrito
             const ids = cart.map(prod => prod.id)
             //Consulto en la base de datos esos productos
-            const productsRef = collection(db, 'products')
+            const productsRef = collection(db, 'productos')
             //Consulto por los productos que únicamente están agregados al carrito, y con documentid los filtro
             const productsAddedFromFirestore = await getDocs(query(productsRef, where(documentId(), 'in', ids)))
             //Me traigo los docs actualizados de la base de datos

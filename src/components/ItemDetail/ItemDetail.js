@@ -5,6 +5,7 @@ import { CartContext } from '../../CartContext/CartContext'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content';
+import 'animate.css';
 
 //Componente de visualización de ItemDetailContainer con contador
 
@@ -42,8 +43,8 @@ const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
     return (
         <div class="wrapper">
             <div class="outer">
-                <div class="content animated fadeInLeft">
-                    <span class="bg animated fadeInDown">EXCLUSIVO</span>
+                <div class="content animate__animated animate__fadeInLeft">
+                    <span class="bg">EXCLUSIVO</span>
                     <h1>{name}</h1>
                     <p>Descripción del producto: {description}</p>
                         <footer>
@@ -54,24 +55,10 @@ const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
                        <span class="bg animated fadeInDown">PRECIO: ${price}</span>
 
                 </div>
-                <img src={img} alt={name} width="300px" class="animated fadeInRight img"/>
+                <img src={img} alt={name} width="300px" class="animate__animated animate__fadeInRight img2"/>
             </div>
         </div>
     )
 }
-
-
-{/* 
-        // 
-        //                 <footer>
-        //                 {stock !==0 ? <ItemCount onAdd={handleOnAdd} stock={stock} initial={quantityAdded} category={category}/>
-        //                 :<h2 className='stock'>SIN STOCK</h2>}
-        //                 {isInCart(id) && <Link to= '/cart' className= 'ButtonF'>FINALIZAR COMPRA</Link>}
-        //                 </footer>
-
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div> */}
 
 export default ItemDetail

@@ -10,7 +10,7 @@ const Item = ({ img, name, description, id, price }) => {
                 <div class="row">
                     <div class="el-wrapper">
                         <div class="box-up">
-                            <img className="img" src={img} alt={name} />
+                            <img className="img1" src={img} alt={name} />
                             <div class="img-info">
                                 <div class="info-inner">
                                     <span class="p-name">{name}</span>
@@ -24,8 +24,7 @@ const Item = ({ img, name, description, id, price }) => {
                             <div class="h-bg">
                                 <div class="h-bg-inner"></div>
                             </div>
-
-                            <a class="cart" href="#">
+                            <a class="cart">
                                 <span class="add-to-cart">
                                     <span class="txt" onClick={() => navigate(`/item/${id}`)}>VER DETALLE</span>
                                 </span>
