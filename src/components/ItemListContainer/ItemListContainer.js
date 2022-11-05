@@ -39,8 +39,8 @@ const ItemListContainer = () => {
              }
             <h2 className="title2">Nosotros</h2>
             <article className='center'>
-                <h3>Somos una distribuidora mayorista de motopartes</h3>
-                <p>Si tenés un comercio y te interesa vender nuestros productos, contactanos para recibir asesoramiento.</p>
+                <h3>Somos la distribuidora mayorista de motopartes más grande de Mendoza</h3>
+                <h5>Si tenés un comercio y te interesa vender nuestros productos, contactanos para recibir asesoramiento.</h5>
             </article>
             <h2 className="title2">Listado de nuestros productos</h2>
             <ItemList products={products} />
