@@ -32,7 +32,6 @@ const Checkout = () => {
                 items: cart,
                 total: totalQuantity
             }
-            console.log(objOrder)
             //Creo el Batch
             const batch = writeBatch(db)
             //Guardo productos fuera del stock en un array

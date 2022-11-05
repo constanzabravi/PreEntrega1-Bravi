@@ -1,5 +1,6 @@
 import { getDocs, collection, query, where } from 'firebase/firestore' //Query: sirve para buscar base de dato/colecciion y aplicar filtro y Where: indica condicion
 import { db } from ".."
+import {getDoc, doc} from 'firebase/firestore'
 import { createAdaptedProductFromFirestore } from '../../Adapter/productAdapter'
 
 export const getProducts = (categoryId) => {
@@ -12,8 +13,6 @@ export const getProducts = (categoryId) => {
 
         //Traigo los documentos de la colección de firebase con la función getDocs (de db)
         getDocs(collectionRef).then(response => {
-            console.log(response)
-
             //Guardar productos adaptados
             //Transformo el array con metodo map
             //La transformacion sale de la respuesta de la propiedad docs que es el array que contiene los productos.
@@ -21,11 +20,26 @@ export const getProducts = (categoryId) => {
                //Retorno el producto de esta funcion
                 return createAdaptedProductFromFirestore(doc)
             })
-            console.log(productsAdapted)
             //Para poder setear este dato tiene que ser un resolve:
             resolve(productsAdapted)
         }).catch(error => {
             reject(error)
         })
+    })
+}
+
+
+export const getProductById = (productId) => {
+    return new Promise((resolve, reject) => {
+            const docRef = doc(db, 'productos', productId) 
+            
+        getDoc(docRef)
+            .then(response => {
+                const productAdapted = createAdaptedProductFromFirestore(response)
+                resolve(productAdapted)
+            })
+            .catch(error => {
+                reject(error)
+            })
     })
 }
