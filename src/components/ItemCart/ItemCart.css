@@ -1,0 +1,34 @@
+.body3 {
+    background: black;
+    color: #fff !important;
+    font-weight: 400;
+    font-size: 1em;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 60px;
+}
+
+.name {
+    color: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  flex-direction: column;
+}
+
+.wrapper1 {
+	background: gray;
+	width: 100%;
+	height: 100vh;
+    font-size: 1rem;
+    color: black;
+}
+
+.titles {
+    padding-top: 10px;
+    color: white;
+    font-size: 1rem;
+    margin-left: 20px;
+
+}

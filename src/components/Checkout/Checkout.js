@@ -4,6 +4,7 @@ import { collection, getDocs, query, where, documentId, writeBatch, addDoc } fro
 import { db } from "../../ServicesFirebase/index"
 import { useNavigate } from "react-router-dom"
 import FormularioCliente from '../Form/Form'
+import Swal from "sweetalert2";
 
 //Función para comprar y confirmar enviando datos a firebase
 const Checkout = () => {
@@ -75,12 +76,25 @@ const Checkout = () => {
 
                 setTimeout(() => {
                     navigate('/')
-                }, 3000)
-
-               console.log('success', `El id de su orden es: ${orderAdded.id}`)
+                }, 2000)
+                Swal.fire({
+                    title: "Gracias por su compra",
+                    text:`El id de su orden es: ${orderAdded.id}`,
+                    icon: "success",
+                    buttons: true,
+                    dangerMode: true,
+                
+                })
             } else {
-                console.log('error', 'hay productos que estan fuera de stock')
+                Swal.fire({
+                    title: "Algunos productos no se encuentran en stock",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                
+                })
             }
+
 
         } catch (error) {
             console.log(error)
@@ -99,7 +113,8 @@ const Checkout = () => {
     return (
         //Llamo al form con la funcion de completodatos que modificaba el state
         <div>
-            <h1>Completa los datos para generar la orden.</h1>
+            {/* Botón para volver hacia la página anterior */}
+            <button className="volver" onClick={() => navigate(-1)} >Volver</button>
             <FormularioCliente completoDatos={completoDatos} />
             {personalData
                 ? <button onClick={createOrder}>Generar Pedido</button>

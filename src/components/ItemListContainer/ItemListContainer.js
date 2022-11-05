@@ -33,9 +33,10 @@ const ItemListContainer = () => {
     // ya transformado el array de componentes, tengo que insertarlos en el DIV como HIJOS 
     return (
         <div>
-            <div className="space">
+           {!categoryId && <div className="space">
                 <h1 className="title1">No importa donde vayas,<br /> te acompañamos <br />en tu camino.</h1>
             </div>
+             }
             <h2 className="title2">Nosotros</h2>
             <article className='center'>
                 <h3>Somos una distribuidora mayorista de motopartes</h3>

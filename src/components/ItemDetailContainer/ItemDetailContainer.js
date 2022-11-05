@@ -42,8 +42,8 @@ const ItemDetailContainer = () => {
 
     return (
         <div>
-            {/* Botón para volver hacia la página anterior */}
-            <button className="title" onClick={() => navigate(-1)} >Volver</button>
+             {/* Botón para volver hacia la página anterior */}
+            <button className="volver" onClick={() => navigate(-1)} >Volver</button>
             <h1 className="center">Detalle de producto</h1>
             <ItemDetail key={product.id} {...product} />
         </div>

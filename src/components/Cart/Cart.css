@@ -1,0 +1,26 @@
+.body3 {
+    background: black;
+    color: #fff;
+    font-weight: 400;
+    font-size: 1em;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 60px;
+}
+
+
+.h12 {
+    color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.divcenter {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
