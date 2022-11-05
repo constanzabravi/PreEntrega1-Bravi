@@ -19,7 +19,7 @@ export const CartContext = createContext({
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]) //Guardo los productos
     const [totalQuantity, setTotalQuantity] = useState(0) //Total de los productos
-    const [total, setTotal] = useState(0) 
+    const [total, setTotal] = useState(0)
 
     //El setTotalQuantity lo voy a ejecutar unicamente si me cambia el cart
     //Obtengo la cantidad total  cuando cambia el carrito y seteo el total 
@@ -44,7 +44,7 @@ export const CartProvider = ({ children }) => {
             setCart([...cart, productToAdd])
         } else {
             const cartUpdated = cart.map(prod => {
-                if(prod.id === productToAdd.id) {
+                if (prod.id === productToAdd.id) {
                     const productUpdated = {
                         ...prod,
                         quantity: productToAdd.quantity
@@ -61,10 +61,10 @@ export const CartProvider = ({ children }) => {
     }
 
     //Validación para saber si está en el carrito 
-    const isInCart = (id) => { return cart.find(prod => prod.id === id) ? true : false}
+    const isInCart = (id) => { return cart.find(prod => prod.id === id) ? true : false }
 
     //Funcion para remover/filtrar productos, todos los que tengan distinto ID al que le estoy pasando me los devuelve al array Y SE ELIMINAN sin mutar el estado.  
-    const removeItem =(id)=>{
+    const removeItem = (id) => {
         const cartWithoutProduct = cart.filter(prod => prod.id !== id)
         setCart(cartWithoutProduct)
     }
@@ -74,14 +74,14 @@ export const CartProvider = ({ children }) => {
     const getQuantity = () => {
         let accu = 0
         cart.forEach(prod => {
-        accu += prod.quantity
+            accu += prod.quantity
         })
         return accu
     }
     //Función para obtener el total de los productos en el carrito 
     const getTotal = () => {
         let accu = 0
-        cart.forEach(prod =>{
+        cart.forEach(prod => {
             accu += prod.quantity * prod.price
         })
         return accu
@@ -98,8 +98,8 @@ export const CartProvider = ({ children }) => {
 
     //Cart.Context.Provider es quien lo va a compartir a todos los hijos
     return (
-        <CartContext.Provider value = {{cart, addItem, removeItem, isInCart, clearCart, totalQuantity,  getQuantity,  total, getProductQuantity}}>
-        {children}
+        <CartContext.Provider value={{ cart, addItem, removeItem, isInCart, clearCart, totalQuantity, getQuantity, total, getProductQuantity }}>
+            {children}
         </CartContext.Provider>
     )
 
