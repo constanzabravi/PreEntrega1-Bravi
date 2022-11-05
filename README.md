@@ -14,29 +14,53 @@ DYE Motopartes es un proyecto de tienda online con carrito de compras, creado co
 
 #Tecnologías
 
-[![htmlico]](https://es.wikipedia.org/wiki/HTML) [![cssico]](https://es.wikipedia.org/wiki/CSS) [![jsico]](https://es.wikipedia.org/wiki/JavaScript) [![firebasee]](https://firebase.google.com/?hl=es-419&gclid=Cj0KCQjw4PKTBhD8ARIsAHChzRLWIosyPDP7QsTRQvzxeUDwT5-bl1RI3l8ZZf1a39VK85fas4xrBq0aAu-JEALw_wcB&gclsrc=aw.ds) [![reactico]](https://es.reactjs.org/) [![gitico]](https://git-scm.com/)
+HTML
+CSS
+JAVASCRIPT
+FIREBASE
+REACTJS
+GIT
 
 #Dependencias
 
 :small_blue_diamond: "@emotion/react": "^11.10.5",
+
 :small_blue_diamond: "@emotion/styled": "^11.10.5",
+
 :small_blue_diamond: "@testing-library/jest-dom": "^5.16.5",
+
 :small_blue_diamond: "@testing-library/react": "^13.4.0",
+
 :small_blue_diamond: "@testing-library/user-event": "^13.5.0",
+
 :small_blue_diamond: "@uiball/loaders": "^1.2.6",
+
 :small_blue_diamond: "animate.css": "^4.1.1",
+
 :small_blue_diamond: "babel-plugin-macros": "^3.1.0",
+
 :small_blue_diamond: "bootstrap": "^5.2.1",
+
 :small_blue_diamond: "firebase": "^9.12.1",
+
 :small_blue_diamond: "react": "^18.2.0",
+
 :small_blue_diamond: "react-bootstrap": "^2.5.0",
+
 :small_blue_diamond: "react-dom": "^18.2.0",
+
 :small_blue_diamond: "react-hook-form": "^7.39.1",
+
 :small_blue_diamond: "react-router-dom": "^6.4.2",
+
 :small_blue_diamond: "react-scripts": "5.0.1",
+
 :small_blue_diamond: "react-toastify": "^9.1.1",
+
 :small_blue_diamond: "sweetalert2": "^11.6.5",
+
 :small_blue_diamond: "sweetalert2-react-content": "^5.0.7",
+
 :small_blue_diamond: "web-vitals": "^2.1.4"
 
 ## Utilización de Firebase
@@ -44,10 +68,15 @@ DYE Motopartes es un proyecto de tienda online con carrito de compras, creado co
 Para conectar tu proyecto con firestore, completá tus datos siguiendo el ejemplo de variables de entorno respetando los datos de la colección de productos.
 
 -REACT_APP_apiKey=
+
 -REACT_APP_authDomain=
+
 -REACT_APP_projectId=
+
 -REACT_APP_storageBucket=
+
 -REACT_APP_messagingSenderId=
+
 -REACT_APP_appId=
 ## Componentes utilizados
 
