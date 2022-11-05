@@ -4,7 +4,7 @@ import { CartContext } from '../../CartContext/CartContext'
 import './ItemCart.css'
 
 
-const ItemCart = ({ id, name, img, quantity, price }) => {
+const ItemCart = ({ id, name, quantity, price }) => {
     const { removeItem } = useContext(CartContext)
     const handleRemove = (id) => {
         removeItem(id)

@@ -1,71 +1,106 @@
+## Proyecto de E-Commerce con [REACTJS] - [CODERHOUSE].
 
-# Getting Started with Create React App
+# _DYE Motopartes_
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+DYE Motopartes es un proyecto de tienda online con carrito de compras, creado con React DOM (utilizando componentes de [React]) y [Firebase] como servidor en la nube. El objetivo de esta tienda es que el consumidor pueda realizar compras de productos en la tienda y crear su orden correspondiente de pedido.
 
-## Available Scripts
+## ¿Cómo se inicializa la app?
 
-In the project directory, you can run:
+1) Podés descargar la carpeta del proyecto o bien, clonarla desde la terminal. Para realizar la clonacion del proyecto, ejecutar en la consola: **`git clone`** https://github.com/constanzabravi/ProyectoReact
+2) Instalar NPM usando el comando **`npm i`** en la ruta donde se encuentra "package.json" desde la terminal.
+3) La App se inicia a través de la terminal con el comando **`npm start`**, luego de haber instalado las dependencias del node-module correspondiente, que se especifican en el siguiente apartado.
 
-### `npm start`
+## ¿Qué tecnologías y dependencias usé para realizar la app?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#Tecnologías
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[![htmlico]](https://es.wikipedia.org/wiki/HTML) [![cssico]](https://es.wikipedia.org/wiki/CSS) [![jsico]](https://es.wikipedia.org/wiki/JavaScript) [![firebasee]](https://firebase.google.com/?hl=es-419&gclid=Cj0KCQjw4PKTBhD8ARIsAHChzRLWIosyPDP7QsTRQvzxeUDwT5-bl1RI3l8ZZf1a39VK85fas4xrBq0aAu-JEALw_wcB&gclsrc=aw.ds) [![reactico]](https://es.reactjs.org/) [![gitico]](https://git-scm.com/)
 
-### `npm test`
+#Dependencias
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+:small_blue_diamond: "@emotion/react": "^11.10.5",
+:small_blue_diamond: "@emotion/styled": "^11.10.5",
+:small_blue_diamond: "@testing-library/jest-dom": "^5.16.5",
+:small_blue_diamond: "@testing-library/react": "^13.4.0",
+:small_blue_diamond: "@testing-library/user-event": "^13.5.0",
+:small_blue_diamond: "@uiball/loaders": "^1.2.6",
+:small_blue_diamond: "animate.css": "^4.1.1",
+:small_blue_diamond: "babel-plugin-macros": "^3.1.0",
+:small_blue_diamond: "bootstrap": "^5.2.1",
+:small_blue_diamond: "firebase": "^9.12.1",
+:small_blue_diamond: "react": "^18.2.0",
+:small_blue_diamond: "react-bootstrap": "^2.5.0",
+:small_blue_diamond: "react-dom": "^18.2.0",
+:small_blue_diamond: "react-hook-form": "^7.39.1",
+:small_blue_diamond: "react-router-dom": "^6.4.2",
+:small_blue_diamond: "react-scripts": "5.0.1",
+:small_blue_diamond: "react-toastify": "^9.1.1",
+:small_blue_diamond: "sweetalert2": "^11.6.5",
+:small_blue_diamond: "sweetalert2-react-content": "^5.0.7",
+:small_blue_diamond: "web-vitals": "^2.1.4"
 
-### `npm run build`
+## Utilización de Firebase
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Para conectar tu proyecto con firestore, completá tus datos siguiendo el ejemplo de variables de entorno respetando los datos de la colección de productos.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-REACT_APP_apiKey=
+-REACT_APP_authDomain=
+-REACT_APP_projectId=
+-REACT_APP_storageBucket=
+-REACT_APP_messagingSenderId=
+-REACT_APP_appId=
+## Componentes utilizados
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+:small_blue_diamond: **NavBar**
 
-### `npm run eject`
+Contiene el logo de la tienda, las categorías y el carrito con los productos agregados y el precio total.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+:small_blue_diamond: **ItemListContainer**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Contiene imagen presentanción, los productos y filtrado por categoría.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+:small_blue_diamond: **ItemList**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Contiene el mapeado de los productos necesarios.
 
-## Learn More
+:small_blue_diamond: **ItemDetailContainer**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Contiene el detalle del producto seleccionado.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+:small_blue_diamond: **ItemDetail**
 
-### Code Splitting
+Contiene un detalle mas especifico del producto seleccionado como el nombre, la descripción, el stock, la categoría, permite seleccionar la cantidad del producto para comprar mediante ItemCount, agregarlo al carrito y finalizar la compra.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+:small_blue_diamond: **Item**
 
-### Analyzing the Bundle Size
+Contiene la visualización del producto con sus detalles y un botón de "Ver Detalle" que redirige a ItemDetail.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+:small_blue_diamond: **Cart**
 
-### Making a Progressive Web App
+Contiene el resumen de la compra.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+:small_blue_diamond: **CartWidget**
 
-### Advanced Configuration
+Visualiza la cantidad de productos en el carrito y el precio total.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+:small_blue_diamond: **Form**
 
-### Deployment
+Contiene un formulario con nombre y apellido, dirección, numero de teléfono y doble correo electrónico con la finalidad de verificar si  coinciden.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+:small_blue_diamond: **ItemCart**
 
-### `npm run build` fails to minify
+Contiene un detalle de los productos seleccionados en el carrito por separado mas una botón por cada uno para poder eliminarlos.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+:small_blue_diamond: **ItemCount**
+
+Permite seleccionar la cantidad del producto.
+
+
+## Versionado
+
+Se utilizó [Git] para el sistema de versionado. Para seguir sus actualizaciones, se usó y usará [GitHub].
+
+
+### :heart: Agradecimiento :heart:
+
+Este proyecto es todo gracias al profe Seba Zuviria, te quiero mucho :)
