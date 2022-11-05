@@ -12,7 +12,7 @@ DYE Motopartes es un proyecto de tienda online con carrito de compras, creado co
 
 ## ¿Qué tecnologías y dependencias usé para realizar la app?
 
-#Tecnologías
+# Tecnologías
 
 HTML
 CSS
@@ -21,7 +21,7 @@ FIREBASE
 REACTJS
 GIT
 
-#Dependencias
+# Dependencias
 
 :small_blue_diamond: "@emotion/react": "^11.10.5",
 
@@ -78,6 +78,7 @@ Para conectar tu proyecto con firestore, completá tus datos siguiendo el ejempl
 -REACT_APP_messagingSenderId=
 
 -REACT_APP_appId=
+
 ## Componentes utilizados
 
 :small_blue_diamond: **NavBar**
@@ -127,9 +128,9 @@ Permite seleccionar la cantidad del producto.
 
 ## Versionado
 
-Se utilizó [Git] para el sistema de versionado. Para seguir sus actualizaciones, se usó y usará [GitHub].
+Se utilizó _Git_ para el sistema de versionado. Para seguir sus actualizaciones, se usó y usará [GitHub].
 
 
 ### :heart: Agradecimiento :heart:
 
-Este proyecto es todo gracias al profe Seba Zuviria, te quiero mucho :)
+Este proyecto fue realizado gracias al profe Seba Zuviria, a quien aprecio mucho.
