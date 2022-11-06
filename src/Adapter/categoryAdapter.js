@@ -1,3 +1,6 @@
+//Información REAL de firebase que primero pasa por este adaptador. 
+//Esta función la exportamos a product.js de ServicesFirebase. 
+
 export const createAdaptedCategoryFromFirestore = (doc) => {
     const data = doc.data()
     
