@@ -24,7 +24,10 @@ const ItemListContainer = () => {
 
     //Si tengo un error:
     if (error) {
-        return <h1>Hubo un error</h1>
+        <>
+        <h1>¡Hubo un error!</h1>
+        <p>Pero no te preocupes, no es culpa tuya</p>
+        </>
     }
 
     // Para devolver esto basado en el estado de la promesa, necesito un estado que controle el estado de la promesa en itemlistcontainer

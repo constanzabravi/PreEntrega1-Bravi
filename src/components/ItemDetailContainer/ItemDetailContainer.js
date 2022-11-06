@@ -17,7 +17,10 @@ const ItemDetailContainer = () => {
     const { data: products, error, cargando } = useAsync(getProductsFromFirestore, [productId])
 
     if (error) {
-        <h1>Hubo Un error</h1>
+        <>
+        <h1>¡Hubo un error!</h1>
+        <p>Pero no te preocupes, no es culpa tuya</p>
+        </>
     }
 
     if (cargando) {
