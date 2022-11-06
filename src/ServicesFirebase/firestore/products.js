@@ -2,6 +2,9 @@ import { getDocs, collection, query, where } from 'firebase/firestore' //Query: 
 import { db } from ".."
 import { createAdaptedProductFromFirestore } from '../../Adapter/productAdapter'
 
+
+//Refactorizacion 
+
 export const getProducts = (categoryId) => {
     return new Promise((resolve, reject) => {
         //Referencia a la colección 
@@ -16,7 +19,7 @@ export const getProducts = (categoryId) => {
             //Transformo el array con metodo map
             //La transformacion sale de la respuesta de la propiedad docs que es el array que contiene los productos.
             const productsAdapted = response.docs.map(doc => {
-               //Retorno el producto de esta funcion
+                //Retorno el producto de esta funcion
                 return createAdaptedProductFromFirestore(doc)
             })
             //Para poder setear este dato tiene que ser un resolve:
@@ -26,3 +29,5 @@ export const getProducts = (categoryId) => {
         })
     })
 }
+
+
