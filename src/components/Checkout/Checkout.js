@@ -1,19 +1,20 @@
 import { useState, useContext } from "react"
 import { CartContext } from "../../CartContext/CartContext"
-import { collection, getDocs, query, where, documentId, writeBatch, addDoc } from 'firebase/firestore'
+import { collection, getDocs, query, where, documentId, writeBatch, addDoc, Timestamp } from 'firebase/firestore'
 import { db } from "../../ServicesFirebase/index"
 import { useNavigate } from "react-router-dom"
 import FormularioCliente from '../Form/Form'
 import Swal from "sweetalert2";
+import './Checkout.css'
 
 //Función para comprar y confirmar enviando datos a firebase
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
-//Callback 
+    //Callback 
     const [personalData, setPersonalData] = useState(false)
     const [datosCompra, setDatosCompra] = useState({})
 
-//Funcion que al ejecutarse modifica state de personaldata
+    //Funcion que al ejecutarse modifica state de personaldata
     const completoDatos = (name, surname, address, phone, email) => {
         setDatosCompra({ name, surname, address, phone, email })
         setPersonalData(true)
@@ -30,7 +31,8 @@ const Checkout = () => {
             const objOrder = {
                 buyer: datosCompra,
                 items: cart,
-                total: totalQuantity
+                total: totalQuantity,
+                date: Timestamp.fromDate(new Date())
             }
             //Creo el Batch
             const batch = writeBatch(db)
@@ -78,22 +80,21 @@ const Checkout = () => {
                 }, 2000)
                 Swal.fire({
                     title: "Gracias por su compra",
-                    text:`El id de su orden es: ${orderAdded.id}`,
+                    text: `El id de su orden es: ${orderAdded.id}`,
                     icon: "success",
                     buttons: true,
                     dangerMode: true,
-                
                 })
+              
             } else {
                 Swal.fire({
                     title: "Algunos productos no se encuentran en stock",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
-                
+
                 })
             }
-
 
         } catch (error) {
             console.log(error)
@@ -104,20 +105,20 @@ const Checkout = () => {
     }
 
     if (loading) {
-        return <h1>Se esta procesando su pedido...</h1>
+        return <h1 className="center">Se esta procesando su pedido...</h1>
     }
 
-      //Parte visual del componente lógico que deriva a generar pedido
+    //Parte visual del componente lógico que deriva a generar pedido
 
     return (
         //Llamo al form con la funcion de completodatos que modificaba el state
-        <div>
-            {/* Botón para volver hacia la página anterior */}
-            <button className="volver" onClick={() => navigate(-1)} >Volver</button>
+        <div className="container text-center">
+        <div className=".col-md-6 .offset-md-3">
             <FormularioCliente completoDatos={completoDatos} />
-            {personalData
-                ? <button onClick={createOrder}>Generar Pedido</button>
-                : ""}
+            { personalData
+            ?<button className="confirmar animate__animated animate__backInDown" onClick={createOrder}>CONFIRMAR COMPRA</button>
+        : ""}
+        </div>
         </div>
     )
 }

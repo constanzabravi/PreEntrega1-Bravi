@@ -11,12 +11,12 @@ const ItemCart = ({ id, name, quantity, price }) => {
     }
 return (    
     <div className='containerCart'>
-        <h2 className="name">{name}</h2> 
-        <div>
-        <p className="titles">Precio del producto: ${price}</p>
-        <p className="titles">Cantidad: {quantity}</p>
-        <p className="titles">Subtotal: ${quantity * price}</p>
-        <button className='ButtonCartItem' onClick={() => handleRemove(id)}>Eliminar</button>
+        <h3 className="name">{name}</h3> 
+        <div className='wrapper2'>
+        <p className="titles"><b>Precio del producto:</b> ${price}</p>
+        <p className="titles"><b>Cantidad:</b> {quantity}</p>
+        <p className="titles"><b>Subtotal:</b> ${quantity * price}</p>
+        <button className='buttonwhite' onClick={() => handleRemove(id)}>Eliminar</button>
         </div>
     </div>
 )

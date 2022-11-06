@@ -1,6 +1,5 @@
 import { getDocs, collection, query, where } from 'firebase/firestore' //Query: sirve para buscar base de dato/colecciion y aplicar filtro y Where: indica condicion
 import { db } from ".."
-import {getDoc, doc} from 'firebase/firestore'
 import { createAdaptedProductFromFirestore } from '../../Adapter/productAdapter'
 
 export const getProducts = (categoryId) => {
@@ -25,21 +24,5 @@ export const getProducts = (categoryId) => {
         }).catch(error => {
             reject(error)
         })
-    })
-}
-
-
-export const getProductById = (productId) => {
-    return new Promise((resolve, reject) => {
-            const docRef = doc(db, 'productos', productId) 
-            
-        getDoc(docRef)
-            .then(response => {
-                const productAdapted = createAdaptedProductFromFirestore(response)
-                resolve(productAdapted)
-            })
-            .catch(error => {
-                reject(error)
-            })
     })
 }

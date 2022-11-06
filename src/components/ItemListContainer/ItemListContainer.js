@@ -16,9 +16,8 @@ const ItemListContainer = () => {
     // Mostrar si esto está cargando, y cambia el estado de useState a falso cdo se resuelva la promesa en finally
     if (cargando) {
         return (
-            <div className='center'>
-                <h1>Cargando tu mejor experiencia...</h1>
-                <DotSpinner size={40} speed={0.9} color="black" className="center" />
+            <div className="center">
+                <DotSpinner className="col align-self-center" size={40} speed={0.9} color="black" />
             </div>
         )
     }
@@ -33,15 +32,10 @@ const ItemListContainer = () => {
     // ya transformado el array de componentes, tengo que insertarlos en el DIV como HIJOS 
     return (
         <div>
-           {!categoryId && <div className="space">
-                <h1 className="title1">No importa donde vayas,<br /> te acompañamos <br />en tu camino.</h1>
+            {!categoryId && <div className="space">
+                <h1 className="title1 animate__animated animate__backInLeft">No importa donde vayas,<br /> te acompañamos <br />en tu camino.</h1>
             </div>
-             }
-            <h2 className="title2">Nosotros</h2>
-            <article className='center'>
-                <h3>Somos la distribuidora mayorista de motopartes más grande de Mendoza</h3>
-                <h5>Si tenés un comercio y te interesa vender nuestros productos, contactanos para recibir asesoramiento.</h5>
-            </article>
+            }
             <h2 className="title2">Listado de nuestros productos</h2>
             <ItemList products={products} />
         </div>

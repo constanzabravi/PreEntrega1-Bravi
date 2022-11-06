@@ -1,0 +1,17 @@
+
+.confirmar {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 20px;
+    outline: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: transparent;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+}

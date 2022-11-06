@@ -119,7 +119,7 @@ Contiene un formulario con nombre y apellido, dirección, numero de teléfono y 
 
 :small_blue_diamond: **ItemCart**
 
-Contiene un detalle de los productos seleccionados en el carrito por separado mas una botón por cada uno para poder eliminarlos.
+Contiene un detalle de los productos seleccionados en el carrito por separado mas una botón por cada uno para poder los.
 
 :small_blue_diamond: **ItemCount**
 
