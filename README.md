@@ -4,6 +4,9 @@
 
 DYE Motopartes es un proyecto de tienda online con carrito de compras, creado con React DOM (utilizando componentes de [React]) y [Firebase] como servidor en la nube. El objetivo de esta tienda es que el consumidor pueda realizar compras de productos en la tienda y crear su orden correspondiente de pedido.
 
+## Ver DEMO 
+![ Alt text](./react.gif)
+
 ## ¿Cómo se inicializa la app?
 
 1) Podés descargar la carpeta del proyecto o bien, clonarla desde la terminal. Para realizar la clonacion del proyecto, ejecutar en la consola: **`git clone`** https://github.com/constanzabravi/ProyectoReact
