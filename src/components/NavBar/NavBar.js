@@ -26,17 +26,17 @@ const NavBar = () => {
     return (
         <nav className="nav">
             <Link to='/'>
-                <img src={moto} alt='Home'/>
-            </Link> 
+                <img src={moto} alt='Home' />
+            </Link>
             <Link className="Option" to='/'>
                 Home
             </Link>
             <div className="categorias">
-          {
-            categories.map(cat => (
-              <Link key={cat.id} to={`/category/${cat.slug}`} className={'Option'}>{cat.label}</Link>
-            ))
-          }
+                {
+                    categories.map(cat => (
+                        <Link key={cat.id} to={`/category/${cat.slug}`} className={'Option'}>{cat.label}</Link>
+                    ))
+                }
             </div>
             <CartWidget />
         </nav >

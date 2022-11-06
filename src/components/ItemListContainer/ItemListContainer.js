@@ -3,7 +3,7 @@ import { DotSpinner } from '@uiball/loaders'
 import ItemList from "../ItemList/ItemList"
 import './ItemListContainer.css'
 import { getProducts } from "../../ServicesFirebase/firestore/products"
-import useAsync from "../Hooks/useAsync"
+import useAsync from '../../Hooks/useAsync'
 
 const ItemListContainer = () => {
     const { categoryId } = useParams()

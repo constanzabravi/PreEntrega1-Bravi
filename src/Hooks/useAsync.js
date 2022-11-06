@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 
 //Esta funcion asíncrona (cualquiera que sea) hace toda la logica del componente, sirve para poder reutilizarse
 //Recibo dependencia/s por parametro del useEffect
-const useAsync = (asyncFn, dependencias) => {
+export const useAsync = (asyncFn, dependencias = []) => {
     const [data, setData] = useState()
     const [error, setError] = useState()
     // Estado que controla el estado de carga:
@@ -13,7 +13,6 @@ const useAsync = (asyncFn, dependencias) => {
     if (!Array.isArray(dependencias)) {
         dependencias = []
     }
-
 
     //Defino el estado de products con el llamado a la api simulada, dependiendo si es categoría o producto
     useEffect(() => {

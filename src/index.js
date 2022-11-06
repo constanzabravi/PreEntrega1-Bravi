@@ -11,5 +11,5 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 //Explicación:
 //App son los objetos encadenados que generan un solo objeto. Ese objeto final termina como argumento de la función render: 
 
-root.render(<App />); 
+root.render(<App />);
 reportWebVitals();

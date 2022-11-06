@@ -47,14 +47,14 @@ const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
                     <span class="bg">EXCLUSIVO</span>
                     <h1>{name}</h1>
                     <p>Descripción del producto: {description}</p>
-                        <footer>
-                         {stock !==0 ? <ItemCount onAdd={handleOnAdd} stock={stock} initial={quantityAdded} category={category}/>
-                        :<h2 className='stock'>SIN STOCK</h2>}
-                        {isInCart(id) && <Link to= '/cart' className= 'bg'>FINALIZAR COMPRA</Link>}
-                       </footer>
-                       <span class="bg animated fadeInDown">PRECIO: ${price}</span>
+                    <footer>
+                        {stock !== 0 ? <ItemCount onAdd={handleOnAdd} stock={stock} initial={quantityAdded} category={category} />
+                            : <h2 className='stock'>SIN STOCK</h2>}
+                        {isInCart(id) && <Link to='/cart' className='bg'>FINALIZAR COMPRA</Link>}
+                    </footer>
+                    <span class="bg animated fadeInDown">PRECIO: ${price}</span>
                 </div>
-                <img src={img} alt={name} width="300px" class="animate__animated animate__fadeInRight img2"/>
+                <img src={img} alt={name} width="300px" class="animate__animated animate__fadeInRight img2" />
             </div>
         </div>
     )

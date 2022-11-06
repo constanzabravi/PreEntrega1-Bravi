@@ -11,7 +11,6 @@ export const createAdaptedProductFromFirestore = (doc) => {
         stock: data.stock
     }
 
-
     return productAdapted
 
 }

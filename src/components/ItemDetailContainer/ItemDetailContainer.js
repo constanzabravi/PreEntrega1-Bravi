@@ -1,35 +1,24 @@
-import { useState, useEffect } from "react" //llamado a la API con useEffect
 import './ItemDetailContainer.css'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams, useNavigate } from 'react-router-dom'
 //Este hook permite traer los parámetros dinámicos de App.js
 import { DotSpinner } from '@uiball/loaders'
-import { getDoc, doc } from "firebase/firestore"
-import { db } from "../../ServicesFirebase"
+import { useAsync } from '../../Hooks/useAsync'
+import { getProductById } from '../../ServicesFirebase/firestore/products'
 
 const ItemDetailContainer = () => {
-    const [product, setProduct] = useState({}) //esto es un objeto
-    const [cargando, setCargando] = useState(true)
+    // const [product, setProduct] = useState({}) //esto es un objeto
     const { productId } = useParams()
-
 
     //Hook para navegar hacia la página anterior 
     const navigate = useNavigate()
 
-    useEffect(() => {
-        const docRef = doc(db, 'productos', productId)
+    const getProductsFromFirestore = () => getProductById(productId)
+    const { data: products, error, cargando } = useAsync(getProductsFromFirestore, [productId])
 
-        getDoc(docRef).then(response => {
-            console.log(response)
-            const data = response.data()
-            //Adaptacion de producto
-            const productAdapted = { id: response.id, ...data}
-            setProduct(productAdapted)
-        }). finally (() => {
-            setCargando(false)
-        })
-
-    }, [productId])
+    if (error) {
+        <h1>Hubo Un error</h1>
+    }
 
     if (cargando) {
         return (
@@ -42,10 +31,10 @@ const ItemDetailContainer = () => {
 
     return (
         <div>
-             {/* Botón para volver hacia la página anterior */}
+            {/* Botón para volver hacia la página anterior */}
             <button className="volver" onClick={() => navigate(-1)} >Volver</button>
             <h1 className="center">Detalle de producto</h1>
-            <ItemDetail key={product.id} {...product} />
+            <ItemDetail  {...products} />
         </div>
     )
 }

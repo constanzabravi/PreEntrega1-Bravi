@@ -15,13 +15,11 @@ export const FormContext = createContext({
 const FormularioCliente = ({ completoDatos }) => {
 
     const [name, setName] = useState("");
-    const [surname, setSurname] = useState("");
+    const [dni, setDni] = useState("");
     const [address, setAddress] = useState("");
     const [email, setEmail] = useState("");
     const [checkEmail, setCheckEmail] = useState("");
     const [phone, setPhone] = useState("");
-
-
 
 
     const submit = (e) => {
@@ -47,14 +45,13 @@ const FormularioCliente = ({ completoDatos }) => {
         else {
             completoDatos(
                 name,
-                surname,
+                dni,
                 address,
                 phone,
                 email
             )
         }
     }
-
 
 
     return (
@@ -72,6 +69,10 @@ const FormularioCliente = ({ completoDatos }) => {
                             <div class="ccfield-prepend">
                                 <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
                                 <input class="ccformfield" value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Nombre y Apellido" required />
+                            </div>
+                            <div class="ccfield-prepend">
+                                <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
+                                <input class="ccformfield" value={dni} onChange={(e) => setDni(e.target.value)} type="number" placeholder="Documento Nacional de Identidad" required />
                             </div>
                             <div class="ccfield-prepend">
                                 <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>

@@ -1,9 +1,10 @@
 import { getDocs, collection, query, where } from 'firebase/firestore' //Query: sirve para buscar base de dato/colecciion y aplicar filtro y Where: indica condicion
+import { getDoc, doc } from 'firebase/firestore'
 import { db } from ".."
 import { createAdaptedProductFromFirestore } from '../../Adapter/productAdapter'
 
 
-//Refactorizacion 
+//Refactorizacion de itemlistcontainer 
 
 export const getProducts = (categoryId) => {
     return new Promise((resolve, reject) => {
@@ -30,4 +31,19 @@ export const getProducts = (categoryId) => {
     })
 }
 
+//Refactorizacion del itemdetailcontainer 
 
+export const getProductById = (productId) => {
+    return new Promise((resolve, reject) => {
+        const docRef = doc(db, 'productos', productId)
+
+        getDoc(docRef)
+            .then(response => {
+                const productAdapted = createAdaptedProductFromFirestore(response)
+                resolve(productAdapted)
+            })
+            .catch(error => {
+                reject(error)
+            })
+    })
+}

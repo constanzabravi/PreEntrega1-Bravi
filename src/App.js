@@ -12,24 +12,24 @@ import Footer from './components/Footer/Footer';
 function App() {
   return (
     <div>
-        <CartProvider>
-          <BrowserRouter>
-            {/* Se ordenan segun la ruta de navegación.
+      <CartProvider>
+        <BrowserRouter>
+          {/* Se ordenan segun la ruta de navegación.
       Los que se muestran siempre se indican con el componente Routes -condicionales
       Los que no, van afuera del componente Routes  */}
-            <NavBar />
-            <Routes>
-              {/* La parte dinámica la escribo luego de ':' */}
-              < Route path='/' element={<ItemListContainer />} />
-              < Route path='/category/:categoryId' element={<ItemListContainer />} />
-              < Route path='/item/:productId' element={<ItemDetailContainer />} />
-              < Route path='/cart' element={<Cart />} />
-              < Route path='/checkout' element={<Checkout />}/>  
-              < Route path='*' element={<h1>404 ERROR NOT FOUND</h1>} />
-            </Routes>
-            <Footer/>
-          </BrowserRouter>
-        </CartProvider>
+          <NavBar />
+          <Routes>
+            {/* La parte dinámica la escribo luego de ':' */}
+            < Route path='/' element={<ItemListContainer />} />
+            < Route path='/category/:categoryId' element={<ItemListContainer />} />
+            < Route path='/item/:productId' element={<ItemDetailContainer />} />
+            < Route path='/cart' element={<Cart />} />
+            < Route path='/checkout' element={<Checkout />} />
+            < Route path='*' element={<h1>404 ERROR NOT FOUND</h1>} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }

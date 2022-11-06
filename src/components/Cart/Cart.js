@@ -16,7 +16,7 @@ const Cart = () => {
         return (
             <div className="container text-center">
                 <div className=".col-md-6 .offset-md-3">
-                    <h2 className="h12"> ¡Hey! <br/> Aún no seleccionaste ningún producto </h2>
+                    <h2 className="h12"> ¡Hey! <br /> Aún no seleccionaste ningún producto </h2>
                     <button className="confirmar2"> <Link to='/'> Comenzar compra</Link></button>
                 </div>
             </div>
