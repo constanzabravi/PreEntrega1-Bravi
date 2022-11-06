@@ -24,11 +24,11 @@ const Item = ({ img, name, description, id, price }) => {
                             <div class="h-bg">
                                 <div class="h-bg-inner"></div>
                             </div>
-                            <a class="cart">
+                            <div class="cart">
                                 <span class="add-to-cart">
                                     <span class="txt" onClick={() => navigate(`/item/${id}`)}>VER DETALLE</span>
                                 </span>
-                            </a>
+                            </div>
                         </div>
                     </div>
                 </div>
