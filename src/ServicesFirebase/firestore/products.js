@@ -1,8 +1,8 @@
-import { getDocs, collection, query, where } from 'firebase/firestore' //Query: sirve para buscar base de dato/colecciion y aplicar filtro y Where: indica condicion
+import { getDocs, collection, query, where, orderBy } from 'firebase/firestore' //Query: sirve para buscar base de dato/colecciion y aplicar filtro y Where: indica condicion
 import { getDoc, doc } from 'firebase/firestore'
 import { db } from ".."
 import { createAdaptedProductFromFirestore } from '../../Adapter/productAdapter'
-
+import { createAdaptedCategoryFromFirestore } from '../../Adapter/categoryAdapter'
 
 //Refactorizacion de itemlistcontainer 
 
@@ -41,6 +41,26 @@ export const getProductById = (productId) => {
             .then(response => {
                 const productAdapted = createAdaptedProductFromFirestore(response)
                 resolve(productAdapted)
+            })
+            .catch(error => {
+                reject(error)
+            })
+    })
+}
+
+//Refactorización de categorias de navbar 
+
+export const getProductByCategory=()=>{
+
+    return new Promise((resolve, reject) => {
+    
+        const collectionRef = query (collection(db, 'categories'), orderBy("order"));
+
+        getDocs(collectionRef).then(response =>{
+            const categoriesAdapted = response.docs.map(doc => {
+                return createAdaptedCategoryFromFirestore(doc)
+            })
+            resolve(categoriesAdapted)
             })
             .catch(error => {
                 reject(error)

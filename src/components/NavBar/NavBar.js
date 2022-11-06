@@ -2,26 +2,24 @@ import moto from './assets/moto.png'
 import CartWidget from '../CartWidget/CartWidget'
 import './NavBar.css'
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import { getDocs, collection } from 'firebase/firestore'
-import { db } from '../../ServicesFirebase'
+import { getProductByCategory } from '../../ServicesFirebase/firestore/products'
+import { useAsync } from '../../Hooks/useAsync'
 
 const NavBar = () => {
-    const [categories, setCategories] = useState([])
-    //Consultar categorias. Traigo documentos de la coleccion categories
-    //Para eso creo la referencia con esta función collection, con la base de datos y la categoria determinada
 
-    useEffect(() => {
-        const collectionRef = collection(db, 'categories')
-        getDocs(collectionRef).then(response => {
-            const categoriesAdapted = response.docs.map(doc => {
-                const data = doc.data()
-                const id = doc.id
-                return { id, ...data }
-            })
-            setCategories(categoriesAdapted)
-        })
-    }, [])
+    const { data: categories, error, cargando } = useAsync(getProductByCategory, [])
+
+    if (error) {
+        <h1>Hubo Un error</h1>
+    }
+
+    if (cargando) {
+        return (
+            <h2 className="center">
+               Cargando...
+            </h2>
+        )
+    }
 
     return (
         <nav className="nav">
@@ -44,3 +42,22 @@ const NavBar = () => {
 }
 
 export default NavBar 
+
+    // const [categories, setCategories] = useState([])
+
+    //Consultar categorias. Traigo documentos de la coleccion categories
+    //Para eso creo la referencia con esta función collection, con la base de datos y la categoria determinada
+
+    // useEffect(() => {
+    //     const collectionRef = collection(db, 'categories')
+    //     getDocs(collectionRef).then(response => {
+    //         const categoriesAdapted = response.docs.map(doc => {
+    //             const data = doc.data()
+    //             const id = doc.id
+    //             return { id, ...data }
+    //         })
+    //         setCategories(categoriesAdapted)
+    //     })
+    // }, [])
+
+    

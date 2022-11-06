@@ -41,10 +41,10 @@ const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
     const quantityAdded = getProductQuantity(id)
 
     return (
-        <div class="wrapper">
-            <div class="outer">
-                <div class="content animate__animated animate__fadeInLeft">
-                    <span class="bg">EXCLUSIVO</span>
+        <div className="wrapper">
+            <div className="outer">
+                <div className="content animate__animated animate__fadeInLeft">
+                    <span className="bg">EXCLUSIVO</span>
                     <h1>{name}</h1>
                     <p>Descripción del producto: {description}</p>
                     <footer>
@@ -52,9 +52,9 @@ const ItemDetail = ({ id, img, name, category, price, stock, description }) => {
                             : <h2 className='stock'>SIN STOCK</h2>}
                         {isInCart(id) && <Link to='/cart' className='bg'>FINALIZAR COMPRA</Link>}
                     </footer>
-                    <span class="bg animated fadeInDown">PRECIO: ${price}</span>
+                    <span className="bg animated fadeInDown">PRECIO: ${price}</span>
                 </div>
-                <img src={img} alt={name} width="300px" class="animate__animated animate__fadeInRight img2" />
+                <img src={img} alt={name} width="300px" className="animate__animated animate__fadeInRight img2" />
             </div>
         </div>
     )
